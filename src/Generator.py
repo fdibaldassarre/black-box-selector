@@ -197,6 +197,8 @@ class TrainGenerator(ImageGenerator):
             raise WrongSourceType
         self._folder = source
         self._files = os.listdir(self._folder)
+        if '.gitignore' in self._files:
+            self._files.remove('.gitignore')
         self._split_size = (IMAGE_WIDTH, IMAGE_HEIGHT)
         self._stride_size = (STRIDE_TRAIN_WIDTH, STRIDE_TRAIN_HEIGHT)
 
