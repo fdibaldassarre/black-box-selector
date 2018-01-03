@@ -20,7 +20,8 @@ class ImageSplitter():
         Get an image from numpy data. Format: HWC
     '''
     def getImageFromData(self, data):
-        pix = numpy.array(numpy.uint8(data))
+        pix = numpy.maximum(0, numpy.minimum(data, 1.0)) * 255.
+        pix = numpy.array(numpy.uint8(pix))
         h, w, c = pix.shape
         if c == 1:
             pix = pix.reshape(h, w)

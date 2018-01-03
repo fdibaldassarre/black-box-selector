@@ -44,7 +44,7 @@ batch = generator.getBatch()
 # Predict
 result = model.predict_on_batch(batch)
 # Reshape
-result = result.reshape((-1, IMAGE_HEIGHT, IMAGE_WIDTH)) * 255.
+result = result.reshape((-1, IMAGE_HEIGHT, IMAGE_WIDTH))
 # Convert batch to image
 image = generator.recomposeImageFromSplits(result)
 # Save
